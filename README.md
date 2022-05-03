@@ -1,8 +1,8 @@
-# InteropEHRate Terminal Remote-to-Device Emergency (R2DE) protocol's HR exchange library
+# Remote-to-Device Emergency (R2DE) Protocol's HR Exchange Library
 Reference Implementation of the R2D Emergency protocol specified by the InteropEHRate project.
 
 ## Installation Guide
-The process of integrating the `t-r2de-e` library is quite straightforward, as it is provided as a `jar`, and is hosted in the project's Nexus repository. 
+The process of integrating the `t-r2de-e` library is quite straightforward, as it is provided as a `jar` file, and is hosted in the project's Nexus repository. 
 
 In case a gradle project is created, the following line needs to be inserted in the dependencies section of the build.gradle file:
 ```
