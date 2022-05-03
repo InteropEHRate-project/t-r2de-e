@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>eu.interopehrate</groupId>
+    <artifactId>tr2de</artifactId>
+    <packaging>jar</packaging>
+    <version>0.1.6</version>
+
+    <properties>
+        <maven.compiler.source>15</maven.compiler.source>
+        <maven.compiler.target>15</maven.compiler.target>
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>nexus</id>
+            <url>http://213.249.46.206:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus</id>
+            <url>http://213.249.46.206:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+    <repositories>
+        <repository>
+            <id>iehr-project-repo</id>
+            <url>http://213.249.46.206:8081/repository/maven-releases/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>eu.interopehrate</groupId>
+            <artifactId>r2d-d2d-commons</artifactId>
+            <version>0.0.7</version>
+        </dependency>
+        <dependency>
+            <groupId>eu.interopehrate</groupId>
+            <artifactId>emergencysec</artifactId>
+            <version>0.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>eu.interopehrate</groupId>
+            <artifactId>thri</artifactId>
+            <version>0.0.5</version>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-text</artifactId>
+            <version>1.6</version>
+        </dependency>
+        <!-- Compliance checking related-->
+        <dependency>
+            <groupId>ca.uhn.hapi.fhir</groupId>
+            <artifactId>hapi-fhir-validation-resources-r4</artifactId>
+            <version>4.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>ca.uhn.hapi.fhir</groupId>
+            <artifactId>hapi-fhir-validation</artifactId>
+            <version>4.1.0</version>
+        </dependency>
+
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.squareup.okhttp/okhttp &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.squareup.okhttp</groupId>-->
+<!--            <artifactId>okhttp</artifactId>-->
+<!--            <version>2.7.5</version>-->
+<!--        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp -->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>3.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okio</groupId>
+            <artifactId>okio</artifactId>
+            <version>1.13.0</version>
+        </dependency>
+
+    </dependencies>
+</project>
