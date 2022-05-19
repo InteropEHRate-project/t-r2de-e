@@ -27,7 +27,7 @@ R2DEmergencyI r2demergency = R2DEmergencyFactory.create();
 
 The `t-r2de-e` library provides methods for requesting access to a Citizen’s health information stored in the S-EHR Cloud, and downloading such information from the S-EHR Cloud. In addition, the latest version of `t-r2de-e` library, includes additional functionalities that can be utilized by HCPs, such as the ability to upload health data related to the emergency to the citizen’s S-EHR Cloud provider, as well as the ability to download metadata information for a specific health record.
 
-The exact methods provided by the `t-r2de-e` library are listed below: 
+The exact methods provided by the `t-r2de-e` library are the ones listed below: 
 * `requestAccess`: HCP working in an Healthcare Institution requests access to a citizen’s data stored in a S-EHR Cloud 
 * `get`: Download and decryption (using the R2D Encrypted Communication library [D3.17]) of health data that is already uploaded on the S-EHR Cloud. If the data is not found an error message is received.
 * `listBuckets`: returns a list of the buckets that are related to a Citizen.Specification of data encryption mechanisms for mobile and web applications

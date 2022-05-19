@@ -1,0 +1,53 @@
+{
+  "resourceType": "ValueSet",
+  "id": "TargetFormat-IEHR",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><ul><li>Include these codes as defined in <code>urn:ietf:bcp:13</code><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td>json</td><td>json</td></tr><tr><td>xml</td><td>xml</td></tr></table></li></ul></div>"
+  },
+  "url": "http://interopehrate.eu/fhir/ValueSet/TargetFormat-IEHR",
+  "version": "1.0.0",
+  "name": "TargetFormatValueSetIEHR",
+  "title": "TargetFormat ValueSet-IEHR",
+  "status": "draft",
+  "date": "2022-04-08T10:02:25+02:00",
+  "publisher": "IEHR-Workgroup",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/Special/committees/IEHR-Workgroup"
+        }
+      ]
+    }
+  ],
+  "description": "This ValueSet contains the MimeTypes that indicates the technical format of the target resources signed by the signature.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001"
+        }
+      ]
+    }
+  ],
+  "compose": {
+    "include": [
+      {
+        "system": "urn:ietf:bcp:13",
+        "concept": [
+          {
+            "code": "json",
+            "display": "json"
+          },
+          {
+            "code": "xml",
+            "display": "xml"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "resourceType": "ValueSet",
+  "id": "ImagingCategory-IEHR",
+  "text": {
+    "status": "extensions",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><ul><li>Include these codes as defined in <a href=\"http://terminology.hl7.org/3.1.0/CodeSystem-v2-0074.html\"><code>http://terminology.hl7.org/CodeSystem/v2-0074</code></a><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a href=\"http://terminology.hl7.org/3.1.0/CodeSystem-v2-0074.html#v2-0074-CT\">CT</a></td><td>CAT Scan</td><td>CAT Scan</td></tr><tr><td><a href=\"http://terminology.hl7.org/3.1.0/CodeSystem-v2-0074.html#v2-0074-CTH\">CTH</a></td><td>Cardiac Catheterization</td><td>Cardiac Catheterization</td></tr><tr><td><a href=\"http://terminology.hl7.org/3.1.0/CodeSystem-v2-0074.html#v2-0074-CUS\">CUS</a></td><td>Cardiac Ultrasound</td><td>Cardiac Ultrasound</td></tr><tr><td><a href=\"http://terminology.hl7.org/3.1.0/CodeSystem-v2-0074.html#v2-0074-NMR\">NMR</a></td><td>Nuclear Magnetic Resonance</td><td>Nuclear Magnetic Resonance</td></tr><tr><td><a href=\"http://terminology.hl7.org/3.1.0/CodeSystem-v2-0074.html#v2-0074-NMS\">NMS</a></td><td>Nuclear Medicine Scan</td><td>Nuclear Medicine Scan</td></tr><tr><td><a href=\"http://terminology.hl7.org/3.1.0/CodeSystem-v2-0074.html#v2-0074-OUS\">OUS</a></td><td>OB Ultrasound</td><td>OB Ultrasound</td></tr><tr><td><a href=\"http://terminology.hl7.org/3.1.0/CodeSystem-v2-0074.html#v2-0074-RAD\">RAD</a></td><td>Radiology</td><td>Radiology</td></tr><tr><td><a href=\"http://terminology.hl7.org/3.1.0/CodeSystem-v2-0074.html#v2-0074-RUS\">RUS</a></td><td>Radiology Ultrasound</td><td>Radiology Ultrasound</td></tr><tr><td><a href=\"http://terminology.hl7.org/3.1.0/CodeSystem-v2-0074.html#v2-0074-RX\">RX</a></td><td>Radiograph</td><td>Radiograph</td></tr><tr><td><a href=\"http://terminology.hl7.org/3.1.0/CodeSystem-v2-0074.html#v2-0074-VUS\">VUS</a></td><td>Vascular Ultrasound</td><td>Vascular Ultrasound</td></tr><tr><td><a href=\"http://terminology.hl7.org/3.1.0/CodeSystem-v2-0074.html#v2-0074-XRC\">XRC</a></td><td>Cineradiograph</td><td>Cineradiograph</td></tr></table></li></ul></div>"
+  },
+  "url": "http://interopehrate.eu/fhir/ValueSet/ImagingCategory-IEHR",
+  "version": "1.0.0",
+  "name": "ImagingCategoryValueSetIEHR",
+  "title": "ImagingCategory ValueSet - IEHR",
+  "status": "draft",
+  "date": "2022-04-08T10:02:25+02:00",
+  "publisher": "IEHR-Workgroup",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/Special/committees/IEHR-Workgroup"
+        }
+      ]
+    }
+  ],
+  "description": "ValueSet containing only codes for categorizing of DiagnosticReports that are used for imaging.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001"
+        }
+      ]
+    }
+  ],
+  "compose": {
+    "include": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+        "concept": [
+          {
+            "code": "CT",
+            "display": "CAT Scan"
+          },
+          {
+            "code": "CTH",
+            "display": "Cardiac Catheterization"
+          },
+          {
+            "code": "CUS",
+            "display": "Cardiac Ultrasound"
+          },
+          {
+            "code": "NMR",
+            "display": "Nuclear Magnetic Resonance"
+          },
+          {
+            "code": "NMS",
+            "display": "Nuclear Medicine Scan"
+          },
+          {
+            "code": "OUS",
+            "display": "OB Ultrasound"
+          },
+          {
+            "code": "RAD",
+            "display": "Radiology"
+          },
+          {
+            "code": "RUS",
+            "display": "Radiology Ultrasound"
+          },
+          {
+            "code": "RX",
+            "display": "Radiograph"
+          },
+          {
+            "code": "VUS",
+            "display": "Vascular Ultrasound"
+          },
+          {
+            "code": "XRC",
+            "display": "Cineradiograph"
+          }
+        ]
+      }
+    ]
+  }
+}

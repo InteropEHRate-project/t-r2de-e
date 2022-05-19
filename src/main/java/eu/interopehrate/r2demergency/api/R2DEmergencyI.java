@@ -19,7 +19,9 @@ public interface R2DEmergencyI {
     String get (String emergencyToken, String bucketName, ResourceCategory rc) throws Exception;
 
     String create (String emergencyToken, ResourceCategory rc, String healthRecord) throws Exception;
-    
-//    JSONObject getJ (String emergencyToken, ResourceCategory rc) throws Exception;
+
+    boolean checkProvenance(String resource) throws Exception;
+
+    boolean checkCompliance (String resource);
 
 }

@@ -11,6 +11,8 @@ public class HCP {
     private String hriEmergencyToken;
     private String msg;
     private int status;
+    private boolean provenanceCheckingPassed;
+    private boolean complianceCheckingPassed;
 
 
     private static HCP singleHCPInstance = null;
@@ -92,5 +94,21 @@ public class HCP {
 
     public void setCitizenHriId(String citizenHriId) {
         this.citizenHriId = citizenHriId;
+    }
+
+    public boolean isProvenanceCheckingPassed() {
+        return provenanceCheckingPassed;
+    }
+
+    public void setProvenanceCheckingPassed(boolean provenanceCheckingPassed) {
+        this.provenanceCheckingPassed = provenanceCheckingPassed;
+    }
+
+    public boolean isComplianceCheckingPassed() {
+        return complianceCheckingPassed;
+    }
+
+    public void setComplianceCheckingPassed(boolean complianceCheckingPassed) {
+        this.complianceCheckingPassed = complianceCheckingPassed;
     }
 }

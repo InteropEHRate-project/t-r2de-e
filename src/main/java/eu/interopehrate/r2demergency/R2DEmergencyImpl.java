@@ -14,6 +14,7 @@ import org.hl7.fhir.r4.model.Bundle;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URISyntaxException;
@@ -22,6 +23,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
+
+//import com.squareup.okhttp.*;
+//import com.squareup.okhttp.MultipartBuilder;
 
 public class R2DEmergencyImpl implements R2DEmergencyI {
     private String structureDefinitionsPath;
@@ -37,21 +41,21 @@ public class R2DEmergencyImpl implements R2DEmergencyI {
     private HttpURLConnection connection;
     private String decrypted;
     private int status;
+    private ProvenanceChecker pc = new ProvenanceChecker();
 
     FhirContext ctx = FhirContext.forR4();
     IParser parser = FhirContext.forR4().newJsonParser();
-    private Checker checker;
+    private ComplianceChecker complianceChecker;
 
     private void check() {
         {
             try {
-                checker = new Checker(ctx, this.structureDefinitionsPath);
+                complianceChecker = new ComplianceChecker(ctx, this.structureDefinitionsPath);
             } catch (FileNotFoundException | URISyntaxException e) {
                 e.printStackTrace();
             }
         }
     }
-	
     String line;
     StringBuffer responseContent = new StringBuffer();
 
@@ -64,7 +68,7 @@ public class R2DEmergencyImpl implements R2DEmergencyI {
             return "Error scanning the QR code";
         }
 
-		//        Communicate with the Health Record Index to receive the citizen's Cloud information
+//        Communicate with the Health Record Index to receive the citizen's Cloud information
         String hriResponse = thri.getCloud(hcp.getHriEmergencyToken(), hcp.getCitizenHriId()).toString();
         System.out.println("HRI RESPONSE:\t" + hriResponse);
         JSONObject thriResponse = stringToJson(hriResponse);
@@ -132,7 +136,6 @@ public class R2DEmergencyImpl implements R2DEmergencyI {
                     hcp.setEmergencyToken((String) jsonObject.get("token"));
                 }
             }
-			
             // Empty string buffer every time a request is done
             responseContent.setLength(0);
             return hcp.getEmergencyToken();
@@ -151,6 +154,7 @@ public class R2DEmergencyImpl implements R2DEmergencyI {
             URL url = new URL(hcp.getCloudUri() + endpoint + urlParams);
             System.out.println(url.toString());
             connection = (HttpURLConnection) url.openConnection();
+
 
             // Request setup
             connection.setRequestProperty("Authorization", hcp.getEmergencyToken());
@@ -264,6 +268,7 @@ public class R2DEmergencyImpl implements R2DEmergencyI {
             return objects;
         }
 
+
         // Empty string buffer every time a request is done
         responseContent.setLength(0);
         return null;
@@ -340,6 +345,8 @@ public class R2DEmergencyImpl implements R2DEmergencyI {
             return metadata;
         }
 
+
+
         // Empty string buffer every time a request is done
         responseContent.setLength(0);
         return null;
@@ -406,13 +413,25 @@ public class R2DEmergencyImpl implements R2DEmergencyI {
             if (status == 200) {
                 try {
                     decrypted = encryptedCommunication.decrypt(responseContent.toString(), hcp.getSymKey());
-                    boolean isCompliant = true;
-                    if (isCompliant) {
+
+                    // Compliance checking
+                    boolean isCompliant = checkCompliance(decrypted);
+                    System.out.println("COMPLIANCE CHECKING OUTCOME: " + isCompliant);
+                    hcp.setComplianceCheckingPassed(isCompliant);
+
+                    // Provenance checking
+                    boolean hasProvenance = checkProvenance(decrypted);
+                    System.out.println("PROVENANCE CHECKING OUTCOME: " + hasProvenance);
+                    hcp.setProvenanceCheckingPassed(hasProvenance);
+
+                    // Only if the provenance testing is passed, the resource is forwarded to the HCP App
+                    if (hasProvenance) {
                         return decrypted;
                     } else {
-                        return "ERROR: " +rc.toString()+ " is not compliant";
+                        return "ERROR: " + rc.toString() + " did not pass the provenance checking test";
                     }
                 } catch (Exception e) {
+//                    return responseContent.toString();
                     e.printStackTrace();
                 }
             }
@@ -425,6 +444,7 @@ public class R2DEmergencyImpl implements R2DEmergencyI {
         responseContent.delete(0, responseContent.length());
         String hrType = rc.toString();
 
+//        boolean isCompliant = validateEHR(healthRecord);
         boolean isCompliant = true;
 
         if (isCompliant) {
@@ -501,10 +521,22 @@ public class R2DEmergencyImpl implements R2DEmergencyI {
 
     }
 
-    private boolean validateEHR(String ehr){
+    private Bundle stringToBundle(String resource){
+        return (Bundle)parser.parseResource(resource);
+
+    }
+
+    @Override
+    public boolean checkCompliance(String resource){
         System.out.println("validating file...");
-        Bundle bundle = parser.parseResource(Bundle.class, ehr);
-        return checker.validateProfile(bundle);
+        Bundle bundle = parser.parseResource(Bundle.class, resource);
+        return complianceChecker.validateProfile(bundle);
+    }
+
+    @Override
+    public boolean checkProvenance(String resource) throws Exception {
+        Bundle bundle = stringToBundle(resource);
+        return pc.check(bundle);
     }
 
 }

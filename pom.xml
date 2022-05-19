@@ -7,7 +7,7 @@
     <groupId>eu.interopehrate</groupId>
     <artifactId>tr2de</artifactId>
     <packaging>jar</packaging>
-    <version>0.1.6</version>
+    <version>0.2.1</version>
 
     <properties>
         <maven.compiler.source>15</maven.compiler.source>
@@ -32,6 +32,11 @@
     </repositories>
 
     <dependencies>
+        <dependency>
+            <groupId>eu.interopehrate</groupId>
+            <artifactId>iehr-provenance</artifactId>
+            <version>0.0.2</version>
+        </dependency>
         <dependency>
             <groupId>eu.interopehrate</groupId>
             <artifactId>r2d-d2d-commons</artifactId>

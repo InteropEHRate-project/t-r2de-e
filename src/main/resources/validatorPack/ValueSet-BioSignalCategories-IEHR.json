@@ -1,0 +1,53 @@
+{
+  "resourceType": "ValueSet",
+  "id": "BioSignalCategories-IEHR",
+  "text": {
+    "status": "extensions",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><ul><li>Include these codes as defined in <a href=\"http://terminology.hl7.org/3.1.0/CodeSystem-v2-0074.html\"><code>http://terminology.hl7.org/CodeSystem/v2-0074</code></a><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a href=\"http://terminology.hl7.org/3.1.0/CodeSystem-v2-0074.html#v2-0074-EC\">EC</a></td><td>Electrocardiac (e.g., EKG, EEC, Holter)</td><td>Electrocardiac (e.g., EKG,  EEC, Holter)</td></tr><tr><td><a href=\"http://terminology.hl7.org/3.1.0/CodeSystem-v2-0074.html#v2-0074-EN\">EN</a></td><td>Electroneuro (EEG, EMG,EP,PSG)</td><td>Electroneuro (EEG, EMG,EP,PSG)</td></tr></table></li></ul></div>"
+  },
+  "url": "http://interopehrate.eu/fhir/ValueSet/BioSignalCategories-IEHR",
+  "version": "1.0.0",
+  "name": "BioSignalCategoriesValueSetIEHR",
+  "title": "BioSignalCategories ValueSet-IEHR",
+  "status": "draft",
+  "date": "2022-04-08T10:02:25+02:00",
+  "publisher": "IEHR-Workgroup",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/Special/committees/IEHR-Workgroup"
+        }
+      ]
+    }
+  ],
+  "description": "ValueSet containing only codes for categorizing of DiagnosticReports that are used for bio signals.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001"
+        }
+      ]
+    }
+  ],
+  "compose": {
+    "include": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+        "concept": [
+          {
+            "code": "EC",
+            "display": "Electrocardiac (e.g., EKG, EEC, Holter)"
+          },
+          {
+            "code": "EN",
+            "display": "Electroneuro (EEG, EMG,EP,PSG)"
+          }
+        ]
+      }
+    ]
+  }
+}
