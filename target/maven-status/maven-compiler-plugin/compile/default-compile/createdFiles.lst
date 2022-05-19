@@ -1,7 +1,5 @@
 eu\interopehrate\r2demergency\R2DEmergencyImpl.class
 eu\interopehrate\r2demergency\HCP.class
 eu\interopehrate\r2demergency\api\R2DEmergencyI.class
-eu\interopehrate\r2demergency\Checker.class
-eu\interopehrate\r2demergency\Checker$1.class
 eu\interopehrate\r2demergency\R2DEmergencyFactory.class
 dummyApplication\Main.class
