@@ -6,7 +6,7 @@ The process of integrating the `t-r2de-e` library is quite straightforward, as i
 
 In case a gradle project is created, the following line needs to be inserted in the dependencies section of the build.gradle file:
 ```
-implementation(group:'eu.interopehrate', name:tr2de, version: '0.1.5')
+implementation(group:'eu.interopehrate', name:tr2de, version: '1.0.0')
 ```
 
 If the development team importing the library, is using Maven instead of Gradle, the same dependency must be expressed with the following Maven syntax:
