@@ -33,4 +33,4 @@ The exact methods provided by the `t-r2de-e` library are the ones listed below:
 * `listBuckets`: returns a list of the buckets that are related to a Citizen.Specification of data encryption mechanisms for mobile and web applications
 * `listObjects`: returns a list of objects in a specific bucket.
 * `getBundlesInfo`: HCP downloads metadata for a specific health data stored in the S-EHR Cloud.
-*`create`: HCP encrypts (using the R2D Encrypted Communication library [D3.17]) and uploads health data related to the emergency to the citizen’s S-EHR Cloud.
+* `create`: HCP encrypts (using the R2D Encrypted Communication library [D3.17]) and uploads health data related to the emergency to the citizen’s S-EHR Cloud.
