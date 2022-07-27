@@ -2,7 +2,7 @@
 Reference Implementation of the R2D Emergency protocol specified by the InteropEHRate project.
 
 ## Installation Guide
-The process of integrating the `t-r2de-e` library is quite straightforward, as it is provided as a `jar` file, and is hosted in the project's Nexus repository. 
+The process of integrating the `t-r2de-e` library is quite straightforward, as it is provided as a `jar` file, and is hosted in the project's GitHub organizational account. 
 
 In case a gradle project is created, the following line needs to be inserted in the dependencies section of the build.gradle file:
 ```
